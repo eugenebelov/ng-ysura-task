@@ -31,7 +31,7 @@
   <label>Search: <input ng-model="levelId"></label>
   <ul ng-repeat='item in vehicles | filter:filterModelLevel | filter:filterModelType | filter:filterModelLicense'>
     <li>
-      <input type="button" name="name" value="add to parking" ng-click="addToParking(item)"/>
+      <input type="button" name="name" value="add to parking" ng-click="addToParking(item)" ng-hide="item.level"/>
       licensce: <span ng-bind='item.licensce'></span> #
       type: <span ng-bind='item.type'></span> #
       level: <span ng-bind='item.level'></span>
