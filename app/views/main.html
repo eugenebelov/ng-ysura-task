@@ -6,13 +6,20 @@
   <div class="filter-by-level">
     Level:
     <ul ng-repeat='level in parking'>
-      <li><a href="#/level{{level.id}}" ng-bind='level.name'></a></li>
+      <li><toggle-filter-link
+                ng-class="{'activeFilter':($parent.level == $index)}"
+                filter-by='{{level.name}}'
+                ng-click='filterByLevel(level.id); $parent.level = $index' /></li>
     </ul>
   </div>
   <div class="filter-by-type">
     Type:
     <ul ng-repeat='type in types'>
-      <li><a href="#/{{type}}" ng-bind='type'></a></li>
+      <!-- <li><a href="" ng-click='filterByType(type)' ng-bind='type'></a></li> -->
+      <li><toggle-filter-link
+                ng-class="{'activeFilter':($parent.type == $index)}"
+                filter-by='{{type}}'
+                ng-click='filterByType(type); $parent.type = $index' /></li>
     </ul>
   </div>
 </aside>
@@ -21,7 +28,8 @@
     Parking has: levels: {{levels}} and slots {{slotsAvailable}}
   </p>
   Vehicles:
-  <ul ng-repeat='item in vehicles'>
+  <label>Search: <input ng-model="levelId"></label>
+  <ul ng-repeat='item in vehicles | filter:filterModelLevel | filter:filterModelType'>
     <li>
       <input type="button" name="name" value="add to parking" ng-click="addToParking(item)"/>
       licensce: <span ng-bind='item.licensce'></span> #

@@ -16,15 +16,15 @@ angular.module('ngYsuraTaskApp')
 
     $scope.types = ['Car', 'Motobike'];
     $scope.vehicles = [
-      {type: 'car', licensce: 'XX-11'},
-      {type: 'car', licensce: 'XX-12'},
-      {type: 'car', licensce: 'XX-13'},
-      {type: 'bike', licensce: 'XX-15'},
-      {type: 'car', licensce: 'XX-16'},
-      {type: 'bike', licensce: 'XX-17'},
-      {type: 'car', licensce: 'XX-18'},
-      {type: 'bike', licensce: 'XX-19'},
-      {type: 'car', licensce: 'XX-20'},
+      {type: 'Car', licensce: 'XX-11'},
+      {type: 'Car', licensce: 'XX-12'},
+      {type: 'Car', licensce: 'XX-13'},
+      {type: 'Motobike', licensce: 'XX-15'},
+      {type: 'Car', licensce: 'XX-16'},
+      {type: 'Motobike', licensce: 'XX-17'},
+      {type: 'Car', licensce: 'XX-18'},
+      {type: 'Motobike', licensce: 'XX-19'},
+      {type: 'Car', licensce: 'XX-20'},
     ];
 
     $scope.generateParking = function() {
@@ -48,19 +48,24 @@ angular.module('ngYsuraTaskApp')
     $scope.addToParking = function(item) {
       for(var i = 0; i < $scope.parking.length; i++) {
         var hasVehicle = $scope.parking[i].slots.some(function(slot){
-          // var isFree = !slot.vehicle;
           if(!slot.vehicle) {
             slot.vehicle = item;
             item.level = $scope.parking[i].name;
             $scope.slotsAvailable--;
             return true;
           }
-          // return isFree;
         });
 
         if(hasVehicle) break;
       }
+    };
 
+    $scope.filterByLevel = function(value) {
+      $scope.filterModelLevel = ($scope.filterModelLevel == 'Level'+value) ? "" : 'Level'+value;
+    };
+
+    $scope.filterByType = function(value) {
+      $scope.filterModelType = ($scope.filterModelType == value) ? "" : value;
     };
 
   });
