@@ -8,10 +8,8 @@
  * Controller of the ngYsuraTaskApp
  */
 angular.module('ngYsuraTaskApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function ($scope) {
+    $scope.levels = ['Level1', 'Level2', 'Level3', 'Level4'];
+    $scope.types = ['Car', 'Motobike'];
+    
   });
