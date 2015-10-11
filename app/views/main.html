@@ -1,6 +1,6 @@
 <aside class="filter">
   <div class="seach-by-licence">
-    <input type="text" value="License plate" />
+    <input type="text" value="License plate" ng-model='filterModelLicense.licensce'/>
   </div>
   <br>
   <div class="filter-by-level">
@@ -29,7 +29,7 @@
   </p>
   Vehicles:
   <label>Search: <input ng-model="levelId"></label>
-  <ul ng-repeat='item in vehicles | filter:filterModelLevel | filter:filterModelType'>
+  <ul ng-repeat='item in vehicles | filter:filterModelLevel | filter:filterModelType | filter:filterModelLicense'>
     <li>
       <input type="button" name="name" value="add to parking" ng-click="addToParking(item)"/>
       licensce: <span ng-bind='item.licensce'></span> #
