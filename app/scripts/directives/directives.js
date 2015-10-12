@@ -19,23 +19,24 @@ angular.module('ngYsuraTaskApp')
       restrict: 'E',
       scope: {
         page: '=',
-        limit: '='
+        limit: '=',
+        size: '='
       },
       controller: function($scope, $element, $attrs) {
+        $scope.total = $scope.size * $scope.limit;
+
         $scope.onPreviousPage = function() {
           if($scope.page > 0) $scope.page--;
-          console.log("prev", $scope.page)
         }
 
         $scope.onNextPage = function() {
           if($scope.page < $scope.limit - 1) $scope.page++;
-          console.log("next", $scope.page, $scope.limit)
         }
       },
       link: function(scope, element, attrs) {
 
       },
-      template: '<div><span>current page: {{page}}</span><span>items on page: {{items}}</span><span>total items: {{total}}</span>' +
+      template: '<div><span>current page: {{page + 1}} </span><span>items on page: {{size}} </span><span>total items: {{total}}</span>' +
       '<br><a href="" ng-click="onPreviousPage()">Prev</a> <a href="" ng-click="onNextPage()">Next</a></div>'
     }
   });
