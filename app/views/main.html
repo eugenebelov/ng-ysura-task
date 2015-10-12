@@ -26,7 +26,7 @@
   </div>
 </aside>
 <div class="vehicles">
-  <p>
+  <p ng-hide=true>
     Parking has: levels: {{levels}} and slots {{slotsAvailable}}
   </p>
   <div>
@@ -45,6 +45,7 @@
         <vehicle-item licensce='{{item.licensce}}'
                       type='{{item.type}}'
                       level='{{parking[item.level].name}}'
+                      slot='{{item.slot}}'
                       on-park-out-handler="goOutOfParking(item)"
                       park-out="{{item.level == undefined}}"/>
 

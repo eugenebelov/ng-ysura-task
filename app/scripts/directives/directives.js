@@ -22,6 +22,7 @@ angular.module('ngYsuraTaskApp')
         licensce: '@',
         type: '@',
         level: '@',
+        slot: '@',
         parkOut: '@',
         parkOutHandler: '&onParkOutHandler'
       },
@@ -50,7 +51,6 @@ angular.module('ngYsuraTaskApp')
       link: function(scope, element, attrs) {
 
       },
-      template: '<div><span>current page: {{page + 1}} </span><span>items on page: {{size}} </span><span>total items: {{total}}</span>' +
-      '<br><a href="" ng-click="onPreviousPage()">Prev</a> <a href="" ng-click="onNextPage()">Next</a></div>'
+      templateUrl: '../views/partials/paging.html'
     }
   });

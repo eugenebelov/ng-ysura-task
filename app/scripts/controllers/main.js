@@ -29,7 +29,7 @@ angular.module('ngYsuraTaskApp')
 
         var places = [];
         for(var slot = 0; slot < $scope.places; slot++) {
-          places.push({name: 'Slot ' + slot});
+          places.push({name: 'Slot ' + slot, id: slot});
         }
 
         parking[level].slots = places;
@@ -47,6 +47,7 @@ angular.module('ngYsuraTaskApp')
             if(!slot.vehicle) {
               slot.vehicle = vehicleObj;
               vehicleObj.levelName = parking[vehicleLevel].name;
+              vehicleObj.slot = slot.id;
               $scope.slotsAvailable--;
               return true;
             }
@@ -61,6 +62,7 @@ angular.module('ngYsuraTaskApp')
           if(!slot.vehicle) {
             slot.vehicle = item;
             item.level = $scope.parking[i].id;
+            item.slot = slot.id;
             item.levelName = $scope.parking[i].name;
             $scope.slotsAvailable--;
             return true;

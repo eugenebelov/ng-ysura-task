@@ -10,7 +10,7 @@ html, body {
 }
 
 body {
-  font-family: 'Helvetica';
+  font-family: 'Open Sans', sans-serif;
 }
 
 .container {
@@ -20,6 +20,10 @@ body {
 .navbar .stripe {
   background-color: #000;
   height: 20px;
+}
+
+.navbar .btn {
+  margin-top: 21px;
 }
 
 .navbar .content {
@@ -75,13 +79,16 @@ body {
   background-color: #ededed;
   height: 80px;
   min-width: 135px;
-  padding: 0 20px 0 40px;
+  padding: 0 20px 0 50px;
   left: 0;
   right: 0;
+  position: relative;
 }
 
-.vehicles .vehicle-item > div {
-  /*display: inline-block;*/
+.vehicles .vehicle-item input[type=button] {
+  position: absolute;
+  left: 15px;
+  top: 30px;
 }
 
 .vehicles .vehicle-item .info > div,
@@ -143,14 +150,16 @@ body {
 
 .filter ul li {
   padding: 0 0 7px 0;
+  vertical-align: middle;
 }
 
 .filter ul li::before {
-  content:"·";
-  font-size: 90px;
+  content:"•";
+  font-size: 50px;
   vertical-align: middle;
-  line-height: 15px;
-  margin-right: -7px;
+  display: block;
+  float: left;
+  line-height: 23px;
 }
 
 .seach-by-licence input[type=text] {
@@ -192,6 +201,19 @@ body {
   .filter-by-type ul li {
     display: inline-block;
     padding: 4px;
+  }
+
+  .navbar-nav {
+    display: none;
+  }
+
+  .vehicles .vehicle-item {
+    padding: 0 10px 0 40px;
+  }
+
+  .vehicles .vehicle-item input[type=button] {
+    left: 10px;
+    top: 30px;
   }
 
   .vehicles .vehicle-item .info {
