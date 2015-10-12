@@ -8,7 +8,7 @@
     <ul>
       <li ng-repeat='level in parking'>
         <toggle-filter-link
-                ng-class="{'activeFilter':($parent.level == $index)}"
+                ng-class="{'activeFilter':($parent.level == $index && filterModelLevel != '')}"
                 filter-by='{{level.id}}'
                 filter-label='{{level.name}}'
                 ng-click='filterByLevel(level.id); $parent.level = $index' /></li>
@@ -19,10 +19,10 @@
     <ul>
       <li ng-repeat='type in types'>
         <toggle-filter-link
-                ng-class="{'activeFilter':($parent.type == $index)}"
+                ng-class="{'activeFilter':($parent.type == $index && filterModelType != '')}"
                 filter-by='{{type}}'
                 filter-label='{{type}}'
-                ng-click='filterByType(type); $parent.type = $index' /></li>
+                ng-click='filterByType(type); $parent.type = $index;' /></li>
     </ul>
   </div>
 </aside>
