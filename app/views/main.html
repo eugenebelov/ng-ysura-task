@@ -5,8 +5,9 @@
   <br>
   <div class="filter-by-level">
     Level:
-    <ul ng-repeat='level in parking'>
-      <li><toggle-filter-link
+    <ul>
+      <li ng-repeat='level in parking'>
+        <toggle-filter-link
                 ng-class="{'activeFilter':($parent.level == $index)}"
                 filter-by='{{level.name}}'
                 ng-click='filterByLevel(level.id); $parent.level = $index' /></li>
@@ -14,9 +15,10 @@
   </div>
   <div class="filter-by-type">
     Type:
-    <ul ng-repeat='type in types'>
+    <ul>
       <!-- <li><a href="" ng-click='filterByType(type)' ng-bind='type'></a></li> -->
-      <li><toggle-filter-link
+      <li ng-repeat='type in types'>
+        <toggle-filter-link
                 ng-class="{'activeFilter':($parent.type == $index)}"
                 filter-by='{{type}}'
                 ng-click='filterByType(type); $parent.type = $index' /></li>
@@ -27,14 +29,24 @@
   <p>
     Parking has: levels: {{levels}} and slots {{slotsAvailable}}
   </p>
-  Vehicles:
-  <label>Search: <input ng-model="levelId"></label>
-  <ul ng-repeat='item in vehicles | filter:filterModelLevel | filter:filterModelType | filter:filterModelLicense'>
-    <li>
-      <input type="button" name="name" value="add to parking" ng-click="addToParking(item)" ng-hide="item.level"/>
-      licensce: <span ng-bind='item.licensce'></span> #
-      type: <span ng-bind='item.type'></span> #
-      level: <span ng-bind='item.level'></span>
-    </li>
-  </ul>
+  <div>
+    <vehicles-paging page="currentPage"
+                     limit="totalPages()"/>
+  </div>
+  <br/>
+  <div>
+    Vehicles:
+    <ul>
+      <li ng-repeat='item in vehicles | filter: filterModelLevel
+                                      | filter: filterModelType
+                                      | filter: filterModelLicense
+                                      | startFrom: currentPage*pageSize
+                                      | limitTo: pageSize'>
+        <input type="button" name="name" value="add to parking" ng-click="addToParking(item)" ng-hide="item.level"/>
+        licensce: <span ng-bind='item.licensce'></span> #
+        type: <span ng-bind='item.type'></span> #
+        level: <span ng-bind='item.level'></span>
+      </li>
+    </ul>
+  </div>
 </div>
