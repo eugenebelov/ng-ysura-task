@@ -9,6 +9,10 @@ html, body {
   margin: 0;
 }
 
+body {
+  font-family: 'Helvetica';
+}
+
 .container {
   overflow: hidden;
 }
@@ -33,15 +37,26 @@ html, body {
 
 .navbar .content div h2,
 .navbar .content ul {
-  display: inline-block;
   padding: 0;
   margin: 0;
 }
 
-.navbar .content ul li {
+.navbar .content .nav li {
   float: left;
+  list-style: none;
+  padding-left: 15px;
 }
 
+.navbar .nav {}
+
+/* Vehicle layout */
+.vehicles {
+  float: right;
+  width: 70%;
+}
+/* END Vehicle layout */
+
+/* Filter layout */
 .filter,
 .vehicles {
   min-height: 400px;
@@ -52,17 +67,86 @@ html, body {
 .filter {
   float: left;
   width: 30%;
-  background-color: #CCCCCC;
 }
+/* END Filter layout */
 
-.filter .activeFilter a{
+/* Filter decoration */
+.filter .activeFilter a {
   font-weight: bold;
   color: #56403B;
   text-decoration: none;
 }
 
-.vehicles {
-  float: right;
-  width: 70%;
-  background-color: #BBBBBB;
+.filter a,
+.filter ul {
+  color: #9B4A0F;
+}
+
+.filter a {
+  text-decoration: none;
+}
+
+.filter h4 {
+  text-transform: uppercase;
+  margin: 0px;
+  padding: 0px
+}
+
+.filter ul {
+  list-style: none;
+  margin: 0px;
+  padding: 7px 0 20px 15px;
+}
+
+.filter ul li {
+  padding: 0 0 7px 0;
+}
+
+.filter ul li::before {
+  content:"·";
+  font-size: 90px;
+  vertical-align: middle;
+  line-height: 15px;
+  margin-right: -7px;
+}
+
+.seach-by-licence input[type=text] {
+  width: 200px;
+  height: 35px;
+  margin: 0 0 30px 35px;
+  background-color: #FFF1E7;
+  /*background: url(images/search.png) no-repeat scroll 7px 7px;*/
+  border: 0px;
+  font-size: 16px;
+}
+
+.filter-by-level h4,
+.filter-by-type h4,
+.filter-by-level ul,
+.filter-by-type ul {
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .filter,
+  .vehicles {
+    float: none;
+    width: 100%;
+    min-height: inherit;
+  }
+
+  .filter-by-level h4,
+  .filter-by-type h4,
+  .filter-by-level ul,
+  .filter-by-type ul {
+    padding: 0px;
+    margin: 0px;
+    display: inline-block;
+  }
+
+  .filter-by-level ul li,
+  .filter-by-type ul li {
+    display: inline-block;
+    padding: 10px;
+  }
 }

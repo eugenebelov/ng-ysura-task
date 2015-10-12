@@ -2,9 +2,8 @@
   <div class="seach-by-licence">
     <input type="text" value="License plate" ng-model='filterModelLicense.licensce'/>
   </div>
-  <br>
   <div class="filter-by-level">
-    Level:
+    <h4>Level:</h4>
     <ul>
       <li ng-repeat='level in parking'>
         <toggle-filter-link
@@ -15,10 +14,9 @@
     </ul>
   </div>
   <div class="filter-by-type">
-    Type:
-    <ul class="fa-ul">
+    <h4>Type:</h4>
+    <ul>
       <li ng-repeat='type in types'>
-        <i class="fa-li fa fa-square"></i>
         <toggle-filter-link
                 ng-class="{'activeFilter':($parent.type == $index && filterModelType != '')}"
                 filter-by='{{type}}'

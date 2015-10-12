@@ -29,7 +29,7 @@ angular.module('ngYsuraTaskApp')
 
         var places = [];
         for(var slot = 0; slot < $scope.places; slot++) {
-          places.push({name: 'Slot' + slot});
+          places.push({name: 'Slot ' + slot});
         }
 
         parking[level].slots = places;
