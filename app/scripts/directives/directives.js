@@ -15,6 +15,19 @@ angular.module('ngYsuraTaskApp')
       template: '<a href="" data-id-attribute={{filterBy}}>{{filterLabel}}</a>'
     }
   })
+  .directive('vehicleItem', function () {
+    return {
+      restrict: 'E',
+      scope: {
+        licensce: '@',
+        type: '@',
+        level: '@',
+        parkOut: '@',
+        parkOutHandler: '&onParkOutHandler'
+      },
+      templateUrl: '../views/partials/vehicle-item.html'
+    }
+  })
   .directive('vehiclesPaging', function () {
     return {
       restrict: 'E',

@@ -43,11 +43,12 @@
                                       | filter: filterModelLicense
                                       | startFrom: currentPage*pageSize
                                       | limitTo: pageSize'>
-        <input type="button" name="name" value="add to parking" ng-click="addToParking(item)" ng-hide="item.level != undefined"/>
-        <input type="button" name="name" value="go out" ng-click="goOutOfParking(item)" ng-hide="item.level == undefined"/>
-        licensce: <span ng-bind='item.licensce'></span> #
-        type: <span ng-bind='item.type'></span> #
-        level: <span ng-bind='parking[item.level].name'></span>
+        <vehicle-item licensce='{{item.licensce}}'
+                      type='{{item.type}}'
+                      level='{{parking[item.level].name}}'
+                      on-park-out-handler="goOutOfParking(item)"
+                      park-out="{{item.level == undefined}}"/>
+
       </li>
     </ul>
   </div>
