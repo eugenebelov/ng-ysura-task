@@ -16,8 +16,9 @@
   </div>
   <div class="filter-by-type">
     Type:
-    <ul>
+    <ul class="fa-ul">
       <li ng-repeat='type in types'>
+        <i class="fa-li fa fa-square"></i>
         <toggle-filter-link
                 ng-class="{'activeFilter':($parent.type == $index && filterModelType != '')}"
                 filter-by='{{type}}'

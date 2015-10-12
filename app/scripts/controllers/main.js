@@ -14,7 +14,7 @@ angular.module('ngYsuraTaskApp')
     $scope.places = parkingSettings.places;
 
     $scope.currentPage = 0;
-    $scope.pageSize = 5;
+    $scope.pageSize = 10;
 
     $scope.slotsAvailable = $scope.places * $scope.levels;
 
@@ -85,6 +85,9 @@ angular.module('ngYsuraTaskApp')
 
         if(hasVehicle) break;
       }
+
+      var index = $scope.vehicles.indexOf(item);
+      $scope.vehicles.splice(index, 1);
     };
 
     $scope.filterByLevel = function(value) {
