@@ -6,12 +6,13 @@ angular.module('ngYsuraTaskApp')
     return {
       restrict: 'E',
       scope: {
-        filterBy: '@'
+        filterBy: '@',
+        filterLabel: '@'
       },
       link: function(scope, element, attrs) {
 
       },
-      template: '<a href="">{{filterBy}}</a>'
+      template: '<a href="" data-id-attribute={{filterBy}}>{{filterLabel}}</a>'
     }
   })
   .directive('vehiclesPaging', function () {

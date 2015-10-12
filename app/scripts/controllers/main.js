@@ -13,20 +13,17 @@ angular.module('ngYsuraTaskApp')
     $scope.levels = 3;
     $scope.currentPage = 0;
     $scope.pageSize = 5;
-    $scope.totalPages = function() {
-      return Math.ceil($scope.vehicles.length/$scope.pageSize);
-    };
 
     $scope.slotsAvailable = $scope.places * $scope.levels;
 
     $scope.types = ['Car', 'Motobike'];
     $scope.vehicles = [
-      {type: 'Car', licensce: 'XX-11'},
-      {type: 'Car', licensce: 'XX-12'},
-      {type: 'Car', licensce: 'XX-13'},
-      {type: 'Motobike', licensce: 'XX-15'},
-      {type: 'Car', licensce: 'XX-16'},
-      {type: 'Motobike', licensce: 'XX-17'},
+      {type: 'Car', licensce: 'XX-11', level: 0},
+      {type: 'Car', licensce: 'XX-12', level: 0},
+      {type: 'Car', licensce: 'XX-13', level: 0},
+      {type: 'Motobike', licensce: 'XX-15', level: 1},
+      {type: 'Car', licensce: 'XX-16', level: 1},
+      {type: 'Motobike', licensce: 'XX-17', level: 1},
       {type: 'Car', licensce: 'XX-18'},
       {type: 'Motobike', licensce: 'XX-19'},
       {type: 'Car', licensce: 'XX-20'},
@@ -54,8 +51,29 @@ angular.module('ngYsuraTaskApp')
 
         parking[level].slots = places;
       }
+
+      $scope.putVehiclesIntoParking(parking);
       return parking;
     };
+
+    $scope.putVehiclesIntoParking = function(parking) {
+      for(var i = 0; i < $scope.vehicles.length; i++) {
+        var level = $scope.vehicles[i].level,
+            item = $scope.vehicles[i];
+
+        if(level != undefined)
+        {
+          parking[level].slots.some(function(slot) {
+              if(!slot.vehicle) {
+                slot.vehicle = item;
+                item.levelName = parking[level].name;
+                $scope.slotsAvailable--;
+                return true;
+              }
+          })
+        }
+      }
+    }
 
     $scope.parking = $scope.generateParking();
 
@@ -64,7 +82,8 @@ angular.module('ngYsuraTaskApp')
         var hasVehicle = $scope.parking[i].slots.some(function(slot){
           if(!slot.vehicle) {
             slot.vehicle = item;
-            item.level = $scope.parking[i].name;
+            item.level = $scope.parking[i].id;
+            item.levelName = $scope.parking[i].name;
             $scope.slotsAvailable--;
             return true;
           }
@@ -75,11 +94,15 @@ angular.module('ngYsuraTaskApp')
     };
 
     $scope.filterByLevel = function(value) {
-      $scope.filterModelLevel = ($scope.filterModelLevel == 'Level'+value) ? "" : 'Level'+value;
+      $scope.filterModelLevel = ($scope.filterModelLevel == "Level" + value) ? "" : "Level" + value;
     };
 
     $scope.filterByType = function(value) {
       $scope.filterModelType = ($scope.filterModelType == value) ? "" : value;
+    };
+
+    $scope.totalPages = function() {
+      return Math.ceil($scope.vehicles.length/$scope.pageSize);
     };
 
   });

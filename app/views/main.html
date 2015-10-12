@@ -9,18 +9,19 @@
       <li ng-repeat='level in parking'>
         <toggle-filter-link
                 ng-class="{'activeFilter':($parent.level == $index)}"
-                filter-by='{{level.name}}'
+                filter-by='{{level.id}}'
+                filter-label='{{level.name}}'
                 ng-click='filterByLevel(level.id); $parent.level = $index' /></li>
     </ul>
   </div>
   <div class="filter-by-type">
     Type:
     <ul>
-      <!-- <li><a href="" ng-click='filterByType(type)' ng-bind='type'></a></li> -->
       <li ng-repeat='type in types'>
         <toggle-filter-link
                 ng-class="{'activeFilter':($parent.type == $index)}"
                 filter-by='{{type}}'
+                filter-label='{{type}}'
                 ng-click='filterByType(type); $parent.type = $index' /></li>
     </ul>
   </div>
@@ -43,10 +44,10 @@
                                       | filter: filterModelLicense
                                       | startFrom: currentPage*pageSize
                                       | limitTo: pageSize'>
-        <input type="button" name="name" value="add to parking" ng-click="addToParking(item)" ng-hide="item.level"/>
+        <input type="button" name="name" value="add to parking" ng-click="addToParking(item)" ng-hide="item.level != undefined"/>
         licensce: <span ng-bind='item.licensce'></span> #
         type: <span ng-bind='item.type'></span> #
-        level: <span ng-bind='item.level'></span>
+        level: <span ng-bind='parking[item.level].name'></span>
       </li>
     </ul>
   </div>
