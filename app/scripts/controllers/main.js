@@ -8,7 +8,7 @@
  * Controller of the ngYsuraTaskApp
  */
 angular.module('ngYsuraTaskApp')
-  .controller('MainCtrl', ['$scope', 'ParkingSettings', function ($scope, parkingSettings) {
+  .controller('MainCtrl', ['$scope', 'ParkingSettings', 'Vehicles', function ($scope, parkingSettings, Vehicles) {
 
     $scope.levels = parkingSettings.levels;
     $scope.places = parkingSettings.places;
@@ -19,26 +19,7 @@ angular.module('ngYsuraTaskApp')
     $scope.slotsAvailable = $scope.places * $scope.levels;
 
     $scope.types = ['Car', 'Motobike'];
-    $scope.vehicles = [
-      {type: 'Car', licensce: 'XX-11', level: 0},
-      {type: 'Car', licensce: 'XX-12', level: 0},
-      {type: 'Car', licensce: 'XX-13', level: 0},
-      {type: 'Motobike', licensce: 'XX-15', level: 1},
-      {type: 'Car', licensce: 'XX-16', level: 1},
-      {type: 'Motobike', licensce: 'XX-17', level: 1},
-      {type: 'Car', licensce: 'XX-18'},
-      {type: 'Motobike', licensce: 'XX-19'},
-      {type: 'Car', licensce: 'XX-20'},
-      {type: 'Car', licensce: 'YY-11'},
-      {type: 'Car', licensce: 'YY-12'},
-      {type: 'Car', licensce: 'YY-13'},
-      {type: 'Motobike', licensce: 'YY-15'},
-      {type: 'Car', licensce: 'YY-16'},
-      {type: 'Motobike', licensce: 'YY-17'},
-      {type: 'Car', licensce: 'YY-18'},
-      {type: 'Motobike', licensce: 'YY-19'},
-      {type: 'Car', licensce: 'YY-20'},
-    ];
+    $scope.vehicles = Vehicles.vehicles;
 
     $scope.generateParking = function() {
       var parking = [];
@@ -61,7 +42,7 @@ angular.module('ngYsuraTaskApp')
         var vehicleLevel = $scope.vehicles[i].level,
             vehicleObj = $scope.vehicles[i];
 
-        if(vehicleLevel != undefined) {
+        if(parking[vehicleLevel] && vehicleLevel != undefined) {
           parking[vehicleLevel].slots.some(function(slot) {
             if(!slot.vehicle) {
               slot.vehicle = vehicleObj;
@@ -126,7 +107,7 @@ angular.module('ngYsuraTaskApp')
     $scope.parking = $scope.generateParking();
     $scope.putVehiclesIntoParking($scope.parking);
 
-    console.log($scope.parking);
+    // console.log($scope.parking);
 
   }]);
 
