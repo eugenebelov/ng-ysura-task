@@ -8,12 +8,17 @@
  * Controller of the ngYsuraTaskApp
  */
 angular.module('ngYsuraTaskApp')
-  .controller('AboutCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('AboutCtrl', ['$scope', 'ParkingSettings', function ($scope, parkingSettings) {
 
-    
-  });
+    $scope.levels = parkingSettings.levels;
+    $scope.places = parkingSettings.places;
+
+    $scope.$watch('levels', function(e) {
+      parkingSettings.levels = e;
+    });
+
+    $scope.$watch('places', function(e) {
+      parkingSettings.places = e;
+    })
+
+  }]);

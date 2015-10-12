@@ -8,9 +8,11 @@
  * Controller of the ngYsuraTaskApp
  */
 angular.module('ngYsuraTaskApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.places = 3;
-    $scope.levels = 3;
+  .controller('MainCtrl', ['$scope', 'ParkingSettings', function ($scope, parkingSettings) {
+    
+    $scope.levels = parkingSettings.levels;
+    $scope.places = parkingSettings.places;
+
     $scope.currentPage = 0;
     $scope.pageSize = 5;
 
@@ -50,9 +52,7 @@ angular.module('ngYsuraTaskApp')
         }
 
         parking[level].slots = places;
-      }
-
-      $scope.putVehiclesIntoParking(parking);
+      };
       return parking;
     };
 
@@ -61,6 +61,7 @@ angular.module('ngYsuraTaskApp')
         var level = $scope.vehicles[i].level,
             item = $scope.vehicles[i];
 
+        console.log(parking[level].slots);
         if(level != undefined)
         {
           parking[level].slots.some(function(slot) {
@@ -73,9 +74,7 @@ angular.module('ngYsuraTaskApp')
           })
         }
       }
-    }
-
-    $scope.parking = $scope.generateParking();
+    };
 
     $scope.addToParking = function(item) {
       for(var i = 0; i < $scope.parking.length; i++) {
@@ -105,7 +104,16 @@ angular.module('ngYsuraTaskApp')
       return Math.ceil($scope.vehicles.length/$scope.pageSize);
     };
 
-  });
+    $scope.$watch('places', function() {
+      $scope.parking = [];
+      $scope.parking = $scope.generateParking();
+      console.log($scope.parking);
+    });
+
+    $scope.parking = $scope.generateParking();
+    $scope.putVehiclesIntoParking($scope.parking);
+
+  }]);
 
 angular.module('ngYsuraTaskApp')
   .filter('startFrom', function() {
