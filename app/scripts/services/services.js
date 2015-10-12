@@ -1,13 +1,13 @@
 angular.module('ngYsuraTaskApp')
   .factory('ParkingSettings', function () {
-    var levels = 0,
-        places = 0;
+    var levels = 3,
+        places = 3;
 
 
     return {
       levels: levels,
       places: places,
-      
+
       setLevel: function(value) {
         levels = value
       },

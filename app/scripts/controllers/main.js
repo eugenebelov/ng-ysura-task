@@ -9,7 +9,7 @@
  */
 angular.module('ngYsuraTaskApp')
   .controller('MainCtrl', ['$scope', 'ParkingSettings', function ($scope, parkingSettings) {
-    
+
     $scope.levels = parkingSettings.levels;
     $scope.places = parkingSettings.places;
 
@@ -58,20 +58,18 @@ angular.module('ngYsuraTaskApp')
 
     $scope.putVehiclesIntoParking = function(parking) {
       for(var i = 0; i < $scope.vehicles.length; i++) {
-        var level = $scope.vehicles[i].level,
-            item = $scope.vehicles[i];
+        var vehicleLevel = $scope.vehicles[i].level,
+            vehicleObj = $scope.vehicles[i];
 
-        console.log(parking[level].slots);
-        if(level != undefined)
-        {
-          parking[level].slots.some(function(slot) {
-              if(!slot.vehicle) {
-                slot.vehicle = item;
-                item.levelName = parking[level].name;
-                $scope.slotsAvailable--;
-                return true;
-              }
-          })
+        if(vehicleLevel != undefined) {
+          parking[vehicleLevel].slots.some(function(slot) {
+            if(!slot.vehicle) {
+              slot.vehicle = vehicleObj;
+              vehicleObj.levelName = parking[vehicleLevel].name;
+              $scope.slotsAvailable--;
+              return true;
+            }
+          });
         }
       }
     };
@@ -92,6 +90,21 @@ angular.module('ngYsuraTaskApp')
       }
     };
 
+    $scope.goOutOfParking = function(item) {
+      for(var i = 0; i < $scope.parking.length; i++) {
+        var hasVehicle = $scope.parking[i].slots.some(function(slot){
+          if(slot.vehicle == item) {
+            slot.vehicle = null;
+            item.level = null;
+            $scope.slotsAvailable++;
+            return true;
+          }
+        });
+
+        if(hasVehicle) break;
+      }
+    };
+
     $scope.filterByLevel = function(value) {
       $scope.filterModelLevel = ($scope.filterModelLevel == "Level" + value) ? "" : "Level" + value;
     };
@@ -104,14 +117,16 @@ angular.module('ngYsuraTaskApp')
       return Math.ceil($scope.vehicles.length/$scope.pageSize);
     };
 
-    $scope.$watch('places', function() {
-      $scope.parking = [];
-      $scope.parking = $scope.generateParking();
-      console.log($scope.parking);
-    });
+    // $scope.$watch('places', function() {
+    //   $scope.parking = [];
+    //   $scope.parking = $scope.generateParking();
+    //   console.log($scope.parking);
+    // });
 
     $scope.parking = $scope.generateParking();
     $scope.putVehiclesIntoParking($scope.parking);
+
+    console.log($scope.parking);
 
   }]);
 
