@@ -77,6 +77,7 @@ angular.module('ngYsuraTaskApp')
           if(slot.vehicle == item) {
             slot.vehicle = null;
             item.level = null;
+            item.levelName = '';
             $scope.slotsAvailable++;
             return true;
           }
