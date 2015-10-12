@@ -61,7 +61,7 @@ body {
 .vehicles {
   min-height: 400px;
   margin: 0;
-  padding: 20px 0 0 20px;
+  padding: 20px 20px 0 20px;
 }
 
 .filter {
@@ -69,6 +69,49 @@ body {
   width: 30%;
 }
 /* END Filter layout */
+
+/* Vehicles decoration */
+.vehicles .vehicle-item {
+  background-color: #ededed;
+  height: 80px;
+  min-width: 135px;
+  padding: 0 20px 0 40px;
+  left: 0;
+  right: 0;
+}
+
+.vehicles .vehicle-item > div {
+  /*display: inline-block;*/
+}
+
+.vehicles .vehicle-item .info > div,
+.vehicles .vehicle-item .place > div {
+  padding-bottom: 10px;
+}
+
+.vehicles .vehicle-item .info,
+.vehicles .vehicle-item .place {
+  margin-top: 15px;
+}
+
+.vehicles .vehicle-item .info {
+  float: left;
+}
+
+.vehicles .vehicle-item .place {
+  text-align: right;
+  float: right;
+}
+
+.vehicles ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.vehicles ul li {
+  padding: 0 0 7px 0;
+}
 
 /* Filter decoration */
 .filter .activeFilter a {
@@ -133,6 +176,7 @@ body {
     float: none;
     width: 100%;
     min-height: inherit;
+    padding: 10px 10px 0 10px;
   }
 
   .filter-by-level h4,
@@ -147,6 +191,10 @@ body {
   .filter-by-level ul li,
   .filter-by-type ul li {
     display: inline-block;
-    padding: 10px;
+    padding: 4px;
+  }
+
+  .vehicles .vehicle-item .info {
+    width: 60%;
   }
 }
