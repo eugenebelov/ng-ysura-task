@@ -17,8 +17,8 @@ body {
   overflow: hidden;
 }
 
-.nav-collapse {
-  background-color: #c5c5c5;
+.margin-left-20 {
+  margin-left: 20px;
 }
 
 .navbar .stripe {
@@ -37,6 +37,7 @@ body {
 .navbar .content div {
   font-family: 'Helvetica';
   font-weight: 400;
+  display: inline-block;
   vertical-align: middle;
   padding: 0;
 }
@@ -54,6 +55,18 @@ body {
 }
 
 .navbar .nav {}
+
+.navbar .nav a {
+  color: #9B4A0F;
+}
+
+.navbar .nav a {
+  text-decoration: none;
+}
+
+.navbar .nav a:hover {
+  text-decoration: underline;
+}
 
 /* Vehicle layout */
 .vehicles {
@@ -138,6 +151,10 @@ body {
   text-decoration: none;
 }
 
+.filter a:hover {
+  text-decoration: underline;
+}
+
 .filter h4 {
   text-transform: uppercase;
   margin: 0px;
@@ -205,6 +222,9 @@ body {
     padding: 4px;
   }
 
+  .navbar .content div {
+    display: block;
+  }
 
 /* ================================== */
   .navbar .nav {
