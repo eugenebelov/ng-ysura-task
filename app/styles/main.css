@@ -27,20 +27,18 @@ body {
 }
 
 .navbar .btn {
-  margin-top: 21px;
+  margin: 21px 21px 0 15px;
 }
 
 .navbar .content {
-  height: 70px;
-  line-height: 70px
+  line-height: 70px;
 }
 
 .navbar .content div {
   font-family: 'Helvetica';
   font-weight: 400;
-  /*display: inline-block;*/
+  vertical-align: middle;
   padding: 0;
-  margin: 0 0 0 30px;
 }
 
 .navbar .content div h2,
@@ -219,6 +217,8 @@ body {
 
   .nav-collapse {
     clear: both;
+    display: block;
+    margin: 0px;
   }
 
   .collapse {
@@ -238,7 +238,7 @@ body {
   }
 
   .collapse.in {
-    height: 85px;
+    height: 70px;
   }
 
 /* ========================================== */
