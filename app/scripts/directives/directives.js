@@ -9,18 +9,10 @@ angular.module('ngYsuraTaskApp')
         toggleClass: '@'
       },
       controller: function($scope, $element, $attrs) {
-        // $scope.eventHandler = function() {
-        //   console.log('lolool c');
-        //   // scope.toggleClass = 'in';
-        // }
+
       },
       link:function(scope, element, attrs) {
-        // scope.toggleClass = true;
-        //
-        // element.on('click', function() {
-        //   console.log('lolool l', scope.toggleClass);
-        //   scope.toggleClass = (scope.toggleClass) ? false : true;
-        // });
+
       }
     }
   })
@@ -45,8 +37,20 @@ angular.module('ngYsuraTaskApp')
         type: '@',
         level: '@',
         slot: '@',
-        parkOut: '@',
         parkOutHandler: '&onParkOutHandler'
+      },
+      link: function(scope, element, attrs) {
+        scope.parkOut = false;
+
+        element.on('mouseleave', function(e) {
+          scope.parkOut = false;
+          scope.$apply();
+        });
+
+        element.on('mouseenter', function(e) {
+          scope.parkOut = true;
+          scope.$apply();
+        });
       },
       templateUrl: '../views/partials/vehicle-item.html'
     }
@@ -63,7 +67,7 @@ angular.module('ngYsuraTaskApp')
         $scope.total = $scope.size * $scope.limit;
         $scope.prevPageActive = false;
         $scope.nextPageActive = true;
-        
+
         $scope.onPreviousPage = function() {
           if($scope.page > 0) $scope.page--;
           $scope.updateActivePageButtons();

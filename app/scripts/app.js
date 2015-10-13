@@ -29,6 +29,11 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      .when('/new', {
+        templateUrl: 'views/new-vehicle.html',
+        controller: 'NewVehicleCtrl',
+        controllerAs: 'new'
+      })
       .otherwise({
         redirectTo: '/'
       });

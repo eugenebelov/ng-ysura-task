@@ -17,17 +17,17 @@
    }]);
 
 angular.module('ngYsuraTaskApp')
-  .controller('MainCtrl', ['$scope', 'ParkingSettings', 'Vehicles', function ($scope, parkingSettings, Vehicles) {
+  .controller('MainCtrl', ['$scope', 'ParkingSettings', 'Vehicles', function ($scope, ParkingSettings, Vehicles) {
 
-    $scope.levels = parkingSettings.levels;
-    $scope.places = parkingSettings.places;
+    $scope.levels = ParkingSettings.levels;
+    $scope.places = ParkingSettings.places;
 
     $scope.currentPage = 0;
     $scope.pageSize = 10;
 
     $scope.slotsAvailable = $scope.places * $scope.levels;
 
-    $scope.types = ['Car', 'Motobike'];
+    $scope.types = Vehicles.types;
     $scope.vehicles = Vehicles.vehicles;
 
     $scope.generateParking = function() {

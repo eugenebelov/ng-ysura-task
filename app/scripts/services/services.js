@@ -24,6 +24,7 @@ angular.module('ngYsuraTaskApp')
 
   })
   .factory('Vehicles', function() {
+    var types = ['Car', 'Motobike'];
     var vehicles = [
       {type: 'Car', licensce: 'XX-11', level: 0},
       {type: 'Car', licensce: 'XX-12', level: 0},
@@ -53,6 +54,7 @@ angular.module('ngYsuraTaskApp')
     ];
 
     return {
-      vehicles: vehicles
+      vehicles: vehicles,
+      types: types
     }
   });

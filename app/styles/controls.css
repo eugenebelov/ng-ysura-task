@@ -7,6 +7,8 @@
   cursor: pointer;
   border-radius: 5px;
   border: 1px solid #cccccc;
+  background-color: #535368;
+  color: #e6e6e6;
 }
 
 .navbar .btn {
