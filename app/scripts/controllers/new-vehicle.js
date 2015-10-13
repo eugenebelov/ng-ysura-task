@@ -8,22 +8,19 @@
  * Controller of the ngYsuraTaskApp
  */
 angular.module('ngYsuraTaskApp')
-  .controller('NewVehicleCtrl', ['$scope', 'ParkingSettings', 'Vehicles', function ($scope, parkingSettings, Vehicles) {
-
-    $scope.levels = parkingSettings.levels;
-    $scope.places = parkingSettings.places;
-    
+  .controller('NewVehicleCtrl', ['$scope', '$rootScope', 'ParkingSettings', 'Vehicles', function ($scope, $rootScope, parkingSettings, Vehicles) {
     $scope.types = Vehicles.types;
+
+    $scope.licensce = '';
     $scope.vType = $scope.types[0];
 
-    // $scope.places = parkingSettings.places;
+    $scope.pushToParking = function() {
+      console.log($scope.licensce, $scope.vType);
 
-    // $scope.$watch('levels', function(e) {
-    //   parkingSettings.levels = e;
-    // });
-    //
-    // $scope.$watch('places', function(e) {
-    //   parkingSettings.places = e;
-    // })
+      Vehicles.pushed.push({
+        type:$scope.vType,
+        licensce:$scope.licensce
+      });
+    };
 
   }]);

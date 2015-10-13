@@ -17,7 +17,7 @@
    }]);
 
 angular.module('ngYsuraTaskApp')
-  .controller('MainCtrl', ['$scope', 'ParkingSettings', 'Vehicles', function ($scope, ParkingSettings, Vehicles) {
+  .controller('MainCtrl', ['$scope', '$rootScope', 'ParkingSettings', 'Vehicles', function ($scope, $rootScope, ParkingSettings, Vehicles) {
 
     $scope.levels = ParkingSettings.levels;
     $scope.places = ParkingSettings.places;
@@ -47,6 +47,14 @@ angular.module('ngYsuraTaskApp')
     };
 
     $scope.putVehiclesIntoParking = function(parking) {
+      $scope.vehicles = $scope.vehicles.concat(Vehicles.pushed);
+      Vehicles.pushed.some(function(item) {
+        $scope.addToParking(item);
+        return false;
+      });
+
+      // Vehicles.pushed = [];
+
       for(var i = 0; i < $scope.vehicles.length; i++) {
         var vehicleLevel = $scope.vehicles[i].level,
             vehicleObj = $scope.vehicles[i];
@@ -57,6 +65,7 @@ angular.module('ngYsuraTaskApp')
               slot.vehicle = vehicleObj;
               vehicleObj.levelName = parking[vehicleLevel].name;
               vehicleObj.slot = slot.id;
+              console.log(vehicleObj);
               $scope.slotsAvailable--;
               return true;
             }
