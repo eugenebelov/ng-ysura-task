@@ -29,6 +29,7 @@ angular.module('ngYsuraTaskApp')
 
     $scope.types = Vehicles.types;
     $scope.vehicles = Vehicles.vehicles;
+    $scope.vehiclesList = [];
 
     $scope.generateParking = function() {
       var parking = [];
@@ -53,8 +54,6 @@ angular.module('ngYsuraTaskApp')
         return false;
       });
 
-      // Vehicles.pushed = [];
-
       for(var i = 0; i < $scope.vehicles.length; i++) {
         var vehicleLevel = $scope.vehicles[i].level,
             vehicleObj = $scope.vehicles[i];
@@ -65,6 +64,9 @@ angular.module('ngYsuraTaskApp')
               vehicleObj.levelName = parking[vehicleLevel].name;
               vehicleObj.slot = slot.id;
               slot.vehicle = vehicleObj;
+
+              $scope.vehiclesList.push(vehicleObj);
+
               $scope.slotsAvailable--;
               return true;
             }

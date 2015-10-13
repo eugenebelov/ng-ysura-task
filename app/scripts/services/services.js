@@ -5,8 +5,8 @@ angular.module('ngYsuraTaskApp')
 
 
     return {
-      levels: levels,
-      places: places
+      levels: levels, // levels < 1 ? 1 : levels
+      places: places // places < 1 ? 1 : places
     }
 
   })
