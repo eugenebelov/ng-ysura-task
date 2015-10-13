@@ -7,15 +7,77 @@
 html, body {
   padding: 0;
   margin: 0;
+  height: 100%;
 }
 
 body {
   font-family: 'Open Sans', sans-serif;
 }
 
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Wrap for footer */
+.wrap {
+  min-height: 100%;
+  margin-bottom: -100px;
+}
+.wrap:after {
+  content: "";
+  display: block;
+}
+.footer, .wrap:after {
+  height: 100px;
+}
+/* END Wrap*/
+
 .container {
   overflow: hidden;
   padding: 20px;
+}
+
+.i-group .label {
+  display: inline-block;
+  width: 200px;
+  font-weight: 700;
+  /*text-align: right;*/
+}
+
+.i-group .control {
+  display: inline-block;
+  width: 100%;
+  vertical-align: middle;
+}
+
+.i-group {
+  margin-bottom: 20px;
+  vertical-align: middle;
+}
+
+.container input[type=text],
+.container select {
+  height: 35px;
+  margin: 0;
+  padding: 0;
+  background-color: #FFF1E7;
+  border: 0px;
+  font-size: 16px;
+  text-indent: 10px;
+  width: 100%;
+}
+
+.settings-parking,
+.new-vehicle {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.settings-parking h3,
+.new-vehicle h3 {
+  padding-bottom: 30px;
 }
 
 .margin-left-20 {
@@ -129,12 +191,6 @@ body {
   float: right;
 }
 
-.vehicles ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
 .vehicles ul li {
   border: 1px solid #ededed;
   margin: 0 0 7px 0;
@@ -193,13 +249,9 @@ body {
 }
 
 .seach-by-licence input[type=text] {
-  width: 200px;
-  height: 35px;
-  margin: 0 0 30px 35px;
-  background-color: #FFF1E7;
   /*background: url(images/search.png) no-repeat scroll 7px 7px;*/
-  border: 0px;
-  font-size: 16px;
+  width: 200px;
+  margin: 0 0 30px 35px;
 }
 
 .filter-by-level h4,
@@ -328,6 +380,10 @@ body {
 
 /* ========================================== */
 
+  .paging-vehicles {
+    margin: 15px 0 5px 0;
+  }
+  
   .vehicles .vehicle-item {
     padding: 0 10px 0 40px;
     font-size: 14px;

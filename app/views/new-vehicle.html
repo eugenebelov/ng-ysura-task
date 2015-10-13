@@ -1,20 +1,29 @@
-<p>Create new vehicle</p>
+<div class="new-vehicle">
+  <h3>Create new vehicle</h3>
 
-<ul>
-  <li>
-    <label for="">
-      Licensce: <input type="text" name="name" value="" ng-model='licensce'>
-    </label>
-  </li>
-  <li>
-    <label for="">
-      Type:
-      <select class="" name="" ng-model='vType' ng-options='type for type in types'>
-      </select>
-    </label>
-  </li>
-</ul>
+  <ul>
+    <li class="i-group">
+      <div class="label">
+          <label for="">Licensce:</label>
+      </div>
+      <div class="control">
+          <input type="text" name="name" value="" ng-model='licensce'>
+      </div>
 
-<input type="button" name="name" value="Add New Vehicle"
-        class="btn"
-        ng-click="pushToParking()"/>
+    </li>
+    <li class="i-group">
+      <div class="label">
+        <label for="">Type:</label>
+      </div>
+      <div class="control">
+        <select name="" ng-model='vType' ng-options='type for type in types'>
+        </select>
+      </div>
+    </li>
+  </ul>
+
+  <input type="button" name="name" value="Add New Vehicle"
+          class="btn"
+          ng-click="pushToParking()"/>
+
+</div>

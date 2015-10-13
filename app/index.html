@@ -23,37 +23,39 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="header">
-      <div class="navbar navbar-default" role="navigation" ng-controller="MenuCtrl">
-        <div class="stripe"></div>
-        <div class="content">
-          <a class="btn btn-navbar" ng-click='toggleCollapse()'>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-          </a>
-          <div class="margin-left-20">
-            <h2>Vehicles</h2>
+    <div class="wrap">
+      <div class="header">
+        <div class="navbar navbar-default" role="navigation" ng-controller="MenuCtrl">
+          <div class="stripe"></div>
+          <div class="content">
+            <a class="btn btn-navbar" ng-click='toggleCollapse()'>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <div class="margin-left-20">
+              <h2>Vehicles</h2>
+            </div>
+            <div class="nav-collapse collapse margin-left-20 " ng-class='{in:toggleClass}'>
+              <ul class="nav navbar-nav">
+                <li><a ng-href="#/">Parking</a></li>
+                <li><a ng-href="#/about">Settings</a></li>
+                <li><a ng-href="#/new">New Vehicle</a></li>
+              </ul>
+            </div>
           </div>
-          <div class="nav-collapse collapse margin-left-20 " ng-class='{in:toggleClass}'>
-            <ul class="nav navbar-nav">
-              <li><a ng-href="#/">Parking</a></li>
-              <li><a ng-href="#/about">Settings</a></li>
-              <li><a ng-href="#/new">New Vehicle</a></li>
-            </ul>
-          </div>
+          <hr />
         </div>
-        <hr />
-      </div
-    </div>
+      </div>
 
-    <div class="container">
-      <div ng-view=""></div>
+      <div class="container">
+        <div ng-view=""></div>
+      </div>
     </div>
 
     <div class="footer">
       <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+        <p><span class="glyphicon glyphicon-heart"></span> Test task * Eugene Belov</p>
       </div>
     </div>
 
