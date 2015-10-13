@@ -89,7 +89,6 @@ body {
 
 .filter {
   float: left;
-  width: 30%;
 }
 /* END Filter layout */
 
@@ -210,20 +209,30 @@ body {
 
 .paging-vehicles .page {
   display: inline-block;
+  text-align: right;
+  line-height: 15px;
 }
 
 .paging-vehicles .devider {
   display: inline-block;
-  font-size: 50px;
+  font-size: 38px;
+  margin-left: -2px;
 }
 
 .paging-vehicles .total {
   display: inline-block;
-  font-size: 48px;
+  font-size: 38px;
+  margin-left: -2px;
+  color: #A5A5A5;
 }
 
 .paging-vehicles .title {
-
+  display: inline-block;
+  font-size: 16px;
+  margin: 8px 0 0 -5px;
+  text-transform: uppercase;
+  vertical-align: text-top;
+  color: #000;
 }
 
 .paging-vehicles .paging-nav {
