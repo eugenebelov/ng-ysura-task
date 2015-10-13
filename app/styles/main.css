@@ -236,7 +236,17 @@ body {
 }
 
 .paging-vehicles .paging-nav {
+  width: 70px;
+  margin-left: 20px;
+  overflow: auto;
+  display: inline-block;
+}
 
+.paging-vehicles .paging-nav .arrow {
+  opacity: 0.3;
+}
+.paging-vehicles .paging-nav .active {
+  opacity: 1;
 }
 
 /* END Pagination decoration */

@@ -61,14 +61,24 @@ angular.module('ngYsuraTaskApp')
       },
       controller: function($scope, $element, $attrs) {
         $scope.total = $scope.size * $scope.limit;
-
+        $scope.prevPageActive = false;
+        $scope.nextPageActive = true;
+        
         $scope.onPreviousPage = function() {
           if($scope.page > 0) $scope.page--;
+          $scope.updateActivePageButtons();
         }
 
         $scope.onNextPage = function() {
           if($scope.page < $scope.limit - 1) $scope.page++;
+          $scope.updateActivePageButtons();
         }
+
+        $scope.updateActivePageButtons = function() {
+          $scope.prevPageActive = $scope.page > 0;
+          $scope.nextPageActive = $scope.page < $scope.limit - 1;
+        }
+
       },
       link: function(scope, element, attrs) {
 

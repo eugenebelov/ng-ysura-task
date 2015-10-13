@@ -1,7 +1,7 @@
 angular.module('ngYsuraTaskApp')
   .factory('ParkingSettings', function () {
     var levels = 3,
-        places = 4;
+        places = 10;
 
 
     return {
@@ -28,6 +28,11 @@ angular.module('ngYsuraTaskApp')
       {type: 'Car', licensce: 'XX-11', level: 0},
       {type: 'Car', licensce: 'XX-12', level: 0},
       {type: 'Car', licensce: 'XX-13', level: 0},
+      {type: 'Car', licensce: 'XX-13', level: 0},
+      {type: 'Car', licensce: 'XX-13', level: 0},
+      {type: 'Car', licensce: 'XX-13', level: 0},
+      {type: 'Car', licensce: 'XX-13', level: 0},
+      {type: 'Car', licensce: 'XX-13', level: 0},
       {type: 'Motobike', licensce: 'XX-15', level: 0},
       {type: 'Car', licensce: 'XX-16', level: 1},
       {type: 'Motobike', licensce: 'XX-17', level: 1},
@@ -40,7 +45,11 @@ angular.module('ngYsuraTaskApp')
       {type: 'Car', licensce: 'YY-16', level: 3},
       {type: 'Motobike', licensce: 'YY-17', level: 3},
       {type: 'Car', licensce: 'YY-18', level: 3},
-      {type: 'Motobike', licensce: 'YY-19', level: 3}
+      {type: 'Motobike', licensce: 'YY-19', level: 3},
+      {type: 'Motobike', licensce: 'YY-19', level: 3},
+      {type: 'Motobike', licensce: 'YY-19', level: 3},
+      {type: 'Motobike', licensce: 'YY-19', level: 3},
+      {type: 'Motobike', licensce: 'YY-19', level: 3},
     ];
 
     return {

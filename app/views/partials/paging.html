@@ -13,7 +13,27 @@
   </div>
 
   <div class="paging-nav">
-    <a href="" ng-click="onPreviousPage()">Prev</a>
-    <a href="" ng-click="onNextPage()">Next</a>
+    <a href="" ng-click="onPreviousPage()">
+      <div class="" style="width: 30px; float: left">
+        <svg viewbox="0 0 100 100">
+          <path class="arrow"
+                ng-class="{active: prevPageActive}"
+                fill='#0081D0'
+                transform="translate(0, 40) rotate(90 50 50)"
+                d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z" />
+        </svg>
+      </div>
+    </a>
+    <a href="" ng-click="onNextPage()">
+      <div class="" style="width: 30px; float: right">
+        <svg viewbox="0 0 100 100">
+          <path class="arrow"
+                ng-class="{active: nextPageActive}"
+                fill='#0081D0'
+                transform="rotate(270 50 50)"
+                d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z" />
+        </svg>
+      </div>
+    </a>
   </div>
 </div>
