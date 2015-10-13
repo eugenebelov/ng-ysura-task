@@ -42,6 +42,10 @@ body {
   padding: 0;
 }
 
+.navbar .content h2 {
+  font-weight: 400;
+}
+
 .navbar .content div h2,
 .navbar .content ul {
   padding: 0;
@@ -196,6 +200,37 @@ body {
 .filter-by-level ul,
 .filter-by-type ul {
 }
+
+
+/* Pagination decoration */
+
+.paging-vehicles {
+
+}
+
+.paging-vehicles .page {
+  display: inline-block;
+}
+
+.paging-vehicles .devider {
+  display: inline-block;
+  font-size: 50px;
+}
+
+.paging-vehicles .total {
+  display: inline-block;
+  font-size: 48px;
+}
+
+.paging-vehicles .title {
+
+}
+
+.paging-vehicles .paging-nav {
+
+}
+
+/* END Pagination decoration */
 
 /* Mobile */
 @media (max-width: 979px) {
