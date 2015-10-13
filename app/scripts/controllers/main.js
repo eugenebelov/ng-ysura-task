@@ -62,10 +62,9 @@ angular.module('ngYsuraTaskApp')
         if(parking[vehicleLevel] && vehicleLevel != undefined) {
           parking[vehicleLevel].slots.some(function(slot) {
             if(!slot.vehicle) {
-              slot.vehicle = vehicleObj;
               vehicleObj.levelName = parking[vehicleLevel].name;
               vehicleObj.slot = slot.id;
-              console.log(vehicleObj);
+              slot.vehicle = vehicleObj;
               $scope.slotsAvailable--;
               return true;
             }
@@ -78,11 +77,7 @@ angular.module('ngYsuraTaskApp')
       for(var i = 0; i < $scope.parking.length; i++) {
         var hasVehicle = $scope.parking[i].slots.some(function(slot){
           if(!slot.vehicle) {
-            slot.vehicle = item;
             item.level = $scope.parking[i].id;
-            item.slot = slot.id;
-            item.levelName = $scope.parking[i].name;
-            $scope.slotsAvailable--;
             return true;
           }
         });
