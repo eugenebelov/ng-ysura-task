@@ -24,21 +24,23 @@
 
     <!-- Add your site or application content here -->
     <div class="header">
-      <div class="navbar navbar-default" role="navigation">
+      <div class="navbar navbar-default" role="navigation" ng-controller="MenuCtrl">
         <div class="stripe"></div>
         <div class="content">
-          <a class="btn btn-navbar">
+          <a class="btn btn-navbar" ng-click='toggleCollapse()'>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
           </a>
-          <ul class="nav navbar-nav">
-            <li><a ng-href="#/">Home</a></li>
-            <li><a ng-href="#/about">About</a></li>
-            <li><a ng-href="#/new">New Vehicle</a></li>
-          </ul>
           <div>
             <h2>Vehicles</h2>
+          </div>
+          <div class="nav-collapse collapse" ng-class='{in:toggleClass}' style="height: {{hght}}px;">
+            <ul class="nav navbar-nav">
+              <li><a ng-href="#/">Home</a></li>
+              <li><a ng-href="#/about">About</a></li>
+              <li><a ng-href="#/new">New Vehicle</a></li>
+            </ul>
           </div>
         </div>
         <hr />

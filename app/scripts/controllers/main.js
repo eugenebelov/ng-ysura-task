@@ -7,6 +7,18 @@
  * # MainCtrl
  * Controller of the ngYsuraTaskApp
  */
+
+ angular.module('ngYsuraTaskApp')
+   .controller('MenuCtrl', ['$scope', function ($scope) {
+     $scope.toggleClass = true;
+     $scope.hght = 0;
+     $scope.toggleCollapse = function() {
+       console.log($scope.toggleClass);
+       $scope.toggleClass = ($scope.toggleClass) ? false : true;
+       $scope.hght = ($scope.hght == 0) ? 85 : 0;
+     }
+   }]);
+
 angular.module('ngYsuraTaskApp')
   .controller('MainCtrl', ['$scope', 'ParkingSettings', 'Vehicles', function ($scope, parkingSettings, Vehicles) {
 

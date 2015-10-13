@@ -17,6 +17,10 @@ body {
   overflow: hidden;
 }
 
+.nav-collapse {
+  background-color: #c5c5c5;
+}
+
 .navbar .stripe {
   background-color: #000;
   height: 20px;
@@ -34,7 +38,7 @@ body {
 .navbar .content div {
   font-family: 'Helvetica';
   font-weight: 400;
-  display: inline-block;
+  /*display: inline-block;*/
   padding: 0;
   margin: 0 0 0 30px;
 }
@@ -179,7 +183,7 @@ body {
 }
 
 /* Mobile */
-@media (max-width: 600px) {
+@media (max-width: 979px) {
   .filter,
   .vehicles {
     float: none;
@@ -203,9 +207,41 @@ body {
     padding: 4px;
   }
 
-  .navbar-nav {
-    display: none;
+
+/* ================================== */
+  .navbar .nav {
+    position: relative;
+    left: 0;
+    display: block;
+    float: left;
+    margin: 0 10px 0 0;
   }
+
+  .nav-collapse {
+    clear: both;
+  }
+
+  .collapse {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    -webkit-transition: height 0.35s ease;
+    -moz-transition: height 0.35s ease;
+    -o-transition: height 0.35s ease;
+    transition: height 0.35s ease;
+  }
+
+  .nav-collapse,
+  .nav-collapse.collapse {
+    overflow: hidden;
+    height: 0;
+  }
+
+  .collapse.in {
+    height: 85px;
+  }
+
+/* ========================================== */
 
   .vehicles .vehicle-item {
     padding: 0 10px 0 40px;

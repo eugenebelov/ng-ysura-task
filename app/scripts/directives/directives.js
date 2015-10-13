@@ -2,6 +2,28 @@
  * Created by eugene on 10/12/15.
  */
 angular.module('ngYsuraTaskApp')
+  .directive('toggleMenu', function () {
+    return {
+      restrict: 'A',
+      scope: {
+        toggleClass: '@'
+      },
+      controller: function($scope, $element, $attrs) {
+        // $scope.eventHandler = function() {
+        //   console.log('lolool c');
+        //   // scope.toggleClass = 'in';
+        // }
+      },
+      link:function(scope, element, attrs) {
+        // scope.toggleClass = true;
+        //
+        // element.on('click', function() {
+        //   console.log('lolool l', scope.toggleClass);
+        //   scope.toggleClass = (scope.toggleClass) ? false : true;
+        // });
+      }
+    }
+  })
   .directive('toggleFilterLink', function () {
     return {
       restrict: 'E',
