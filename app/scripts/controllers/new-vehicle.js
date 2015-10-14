@@ -15,10 +15,10 @@ angular.module('ngYsuraTaskApp')
     $scope.vType = $scope.types[0];
 
     $scope.pushToParking = function() {
-
+      console.log($scope.vType);
       Vehicles.pushed.push({
-        type:$scope.vType,
-        licensce:$scope.licensce
+        type: $scope.vType.id,
+        licensce: $scope.licensce
       });
     };
 

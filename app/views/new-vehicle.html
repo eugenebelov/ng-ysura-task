@@ -16,7 +16,8 @@
         <label for="">Type:</label>
       </div>
       <div class="control">
-        <select name="" ng-model='vType' ng-options='type for type in types'>
+
+        <select name="" ng-model='vType' ng-options='type.label for type in types track by type.id'>
         </select>
       </div>
     </li>
