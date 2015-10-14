@@ -60,9 +60,9 @@ angular.module('ngYsuraTaskApp')
       restrict: 'E',
       scope: {
         page: '=',
-        limit: '=',
-        size: '=',
-        total: '@'
+        size: '@',
+        limit: '@',
+        totalInParking: '@'
       },
       controller: function($scope, $element, $attrs) {
         $scope.total = $scope.size * $scope.limit;

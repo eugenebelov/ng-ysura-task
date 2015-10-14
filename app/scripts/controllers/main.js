@@ -120,7 +120,7 @@ angular.module('ngYsuraTaskApp')
     };
 
     $scope.totalPages = function() {
-      return Math.ceil($scope.vehicles.length/$scope.pageSize);
+      return Math.ceil($scope.vehiclesList.length/$scope.pageSize);
     };
 
     $scope.parking = $scope.generateParking();
