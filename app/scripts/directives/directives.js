@@ -64,10 +64,10 @@ angular.module('ngYsuraTaskApp')
         page: '=',
         size: '@',
         limit: '@',
-        totalInParking: '@'
+        totalInParking: '='
       },
       controller: function($scope, $element, $attrs) {
-        $scope.total = $scope.size * $scope.limit;
+        // $scope.total = $scope.size * $scope.limit;
         $scope.prevPageActive = false;
         $scope.nextPageActive = true;
 

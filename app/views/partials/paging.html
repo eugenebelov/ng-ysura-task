@@ -1,13 +1,14 @@
 <div class="paging-vehicles">
   <div class="page">
-    <div>{{page + 1}} </div>
-    <div>{{limit}} </div>
+    <div ng-bind='page + 1'></div>
+    <div ng-bind='limit'></div>
   </div>
 
   <div class="devider">/</div>
 
   <div class="total">
-    <span>{{total-in-parking}} <div class="title">Vehicles</div></span>
+    <span ng-bind='totalInParking'></span>
+    <div class="title">Vehicles</div>
   </div>
 
   <div class="paging-nav">

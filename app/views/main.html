@@ -26,13 +26,13 @@
   </div>
 </aside>
 <div class="vehicles">
-  <!-- <p>
-    Parking has: levels: {{levels}} and slots {{slotsAvailable}}
-  </p> -->
+  <p>
+    Parking has: levels: {{levels}} and slots {{slotsAvailable}} {{totalVehicles()}}
+  </p>
   <div>
     <vehicles-paging page="currentPage"
                      size="{{pageSize}}"
-                     totalInParking="{{totalVehicles()}}"
+                     total-in-parking="totalVehicles()"
                      limit="{{totalPages()}}"/>
   </div>
   <br/>

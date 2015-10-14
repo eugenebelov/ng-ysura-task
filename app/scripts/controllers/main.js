@@ -8,14 +8,6 @@
  * Controller of the ngYsuraTaskApp
  */
 
- angular.module('ngYsuraTaskApp')
-   .controller('MenuCtrl', ['$scope', function ($scope) {
-     $scope.toggleClass = false;
-     $scope.toggleCollapse = function() {
-       $scope.toggleClass = ($scope.toggleClass) ? false : true;
-     }
-   }]);
-
 angular.module('ngYsuraTaskApp')
   .controller('MainCtrl', ['$scope', '$rootScope', 'ParkingSettings', 'Vehicles', function ($scope, $rootScope, ParkingSettings, Vehicles) {
 
@@ -28,7 +20,7 @@ angular.module('ngYsuraTaskApp')
     $scope.slotsAvailable = $scope.places * $scope.levels;
 
     $scope.types = Vehicles.types;
-    $scope.vehicles = Vehicles.vehicles;
+    // $scope.vehicles = Vehicles.vehicles;
     $scope.vehiclesList = [];
 
     $scope.generateParking = function() {
@@ -48,15 +40,11 @@ angular.module('ngYsuraTaskApp')
     };
 
     $scope.putVehiclesIntoParking = function(parking) {
-      $scope.vehicles = $scope.vehicles.concat(Vehicles.pushed);
-      Vehicles.pushed.some(function(item) {
-        $scope.addToParking(item);
-        return false;
-      });
+      Vehicles.vehicles = Vehicles.vehicles.concat(Vehicles.pushed);
 
-      for(var i = 0; i < $scope.vehicles.length; i++) {
-        var vehicleLevel = $scope.vehicles[i].level,
-            vehicleObj = $scope.vehicles[i];
+      for(var i = 0; i < Vehicles.vehicles.length; i++) {
+        var vehicleLevel = Vehicles.vehicles[i].level,
+            vehicleObj = Vehicles.vehicles[i];
 
         if(parking[vehicleLevel] && vehicleLevel != undefined) {
           parking[vehicleLevel].slots.some(function(slot) {
@@ -73,18 +61,29 @@ angular.module('ngYsuraTaskApp')
           });
         }
       }
+
+
+      $scope.addToParking(Vehicles.pushed);
+      Vehicles.pushed = [];
     };
 
-    $scope.addToParking = function(item) {
+    $scope.addToParking = function(items) {
+      if(items.length <= 0) return;
+
       for(var i = 0; i < $scope.parking.length; i++) {
         var hasVehicle = $scope.parking[i].slots.some(function(slot){
-          if(!slot.vehicle) {
-            item.level = $scope.parking[i].id;
-            return true;
-          }
-        });
+          if(!slot.vehicle && items.length > 0) {
+            var putted = items.shift();
+            putted.level = $scope.parking[i].id;
+            putted.levelName = $scope.parking[i].name;
+            putted.slot = slot.id;
+            slot.vehicle = putted;
 
-        if(hasVehicle) break;
+            $scope.vehiclesList.push(putted);
+            $scope.slotsAvailable--;
+          }
+          return false;
+        });
       }
     };
 
@@ -103,8 +102,8 @@ angular.module('ngYsuraTaskApp')
         if(hasVehicle) break;
       }
 
-      var index = $scope.vehicles.indexOf(item);
-      $scope.vehicles.splice(index, 1);
+      var index = Vehicles.vehicles.indexOf(item);
+      Vehicles.vehicles.splice(index, 1);
     };
 
     $scope.filterByLevel = function(value) {
@@ -112,7 +111,6 @@ angular.module('ngYsuraTaskApp')
     };
 
     $scope.filterByType = function(value) {
-      console.log($scope.filterModelType, value);
       $scope.filterModelType = ($scope.filterModelType == value) ? undefined : value;
     };
 
