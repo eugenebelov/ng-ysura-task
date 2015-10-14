@@ -115,6 +115,10 @@ angular.module('ngYsuraTaskApp')
       $scope.filterModelType = ($scope.filterModelType == value) ? "" : value;
     };
 
+    $scope.totalVehicles = function() {
+      return Math.ceil($scope.vehiclesList.length);
+    };
+
     $scope.totalPages = function() {
       return Math.ceil($scope.vehicles.length/$scope.pageSize);
     };

@@ -61,7 +61,8 @@ angular.module('ngYsuraTaskApp')
       scope: {
         page: '=',
         limit: '=',
-        size: '='
+        size: '=',
+        total: '@'
       },
       controller: function($scope, $element, $attrs) {
         $scope.total = $scope.size * $scope.limit;
