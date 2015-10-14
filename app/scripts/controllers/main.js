@@ -62,7 +62,6 @@ angular.module('ngYsuraTaskApp')
         }
       }
 
-
       $scope.addToParking(Vehicles.pushed);
       Vehicles.pushed = [];
     };

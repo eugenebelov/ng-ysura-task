@@ -1,0 +1,11 @@
+form input.ng-invalid.ng-touched {
+  background-color: #FA787E;
+}
+
+form input.ng-valid.ng-touched {
+  background-color: #FFF1E7;
+}
+
+.enabled {
+  opacity: 0.5
+}

@@ -1,30 +1,38 @@
 <div class="new-vehicle">
   <h3>Create new vehicle</h3>
+  <h4 ng-show='disabledAdding'>Sorry, our parking has no more available places.</h4>
 
-  <ul>
-    <li class="i-group">
-      <div class="label">
-          <label for="">Licensce:</label>
-      </div>
-      <div class="control">
-          <input type="text" name="name" value="" ng-model='licensce'>
-      </div>
+  <form novalidate name="form"
+        ng-class='{enabled: disabledAdding}'>
+    <fieldset ng-disabled='disabledAdding'>
+      <ul>
+        <li class="i-group">
+          <div class="label">
+              <label for="">Licensce:</label>
+          </div>
+          <div class="control">
+              <input type="text" name="name" value="" ng-model='licensce' required>
+          </div>
 
-    </li>
-    <li class="i-group">
-      <div class="label">
-        <label for="">Type:</label>
-      </div>
-      <div class="control">
+        </li>
+        <li class="i-group">
+          <div class="label">
+            <label for="">Type:</label>
+          </div>
+          <div class="control">
 
-        <select name="" ng-model='vType' ng-options='type.label for type in types track by type.id'>
-        </select>
-      </div>
-    </li>
-  </ul>
+            <select name="" ng-model='vType' ng-options='type.label for type in types track by type.id'>
+            </select>
+          </div>
+        </li>
+      </ul>
 
-  <input type="button" name="name" value="Add New Vehicle"
-          class="btn"
-          ng-click="pushToParking()"/>
+      <input type="button" name="name" value="Add New Vehicle"
+              class="btn"
+              ng-class='{enabled: form.name.$error.required}'
+              ng-disabled="form.name.$error.required"
+              ng-click="pushToParking()"/>
+    </fieldset>
+  </form>
 
 </div>
