@@ -41,11 +41,11 @@
   <br/>
   <div>
     <ul>
-      <li ng-repeat='item in vehiclesList | filter: filterModelLevel
+      <li ng-repeat='item in (vehiclesList | filter: filterModelLevel
                                       | filter: { type:filterModelType }
                                       | filter: filterModelLicense
                                       | startFrom: currentPage*pageSize
-                                      | limitTo: pageSize'>
+                                      | limitTo: pageSize) as filterdList'>
         <vehicle-item licensce='{{item.licensce}}'
                       type-id='{{item.type}}'
                       level='{{parking[item.level].name}}'

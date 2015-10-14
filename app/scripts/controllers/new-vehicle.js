@@ -14,8 +14,7 @@ angular.module('ngYsuraTaskApp')
     $scope.licensce = '';
     $scope.vType = $scope.types[0];
 
-    console.log(ParkingSettings.levels, ParkingSettings.places, Vehicles.vehicles.length);
-    $scope.disabledAdding = (Vehicles.vehicles.length >= ParkingSettings.levels * ParkingSettings.places);
+    $scope.disabledAdding = (Vehicles.vehicles.length >= parseInt(ParkingSettings.levels) * parseInt(ParkingSettings.places));
 
     $scope.pushToParking = function() {
       Vehicles.pushed.push({

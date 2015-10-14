@@ -22,6 +22,7 @@ angular.module('ngYsuraTaskApp')
     $scope.types = Vehicles.types;
     // $scope.vehicles = Vehicles.vehicles;
     $scope.vehiclesList = [];
+    $scope.filterdList = [];
 
     $scope.generateParking = function() {
       var parking = [];
