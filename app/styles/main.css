@@ -187,7 +187,7 @@ ul {
 }
 
 .vehicles .vehicle-item input[type=button]:hover {
-  
+
 }
 
 .vehicles .vehicle-item .info > div,
@@ -272,6 +272,7 @@ ul {
   width: 200px;
   padding-left: 25px;
   margin: 0 0 30px 35px;
+  text-transform: uppercase;
 }
 
 .filter-by-level h4,
@@ -335,6 +336,16 @@ ul {
 @media (max-width: 979px) {
   .container {
     padding: 10px;
+  }
+
+  .settings-parking,
+  .new-vehicle {
+      width: 80%;
+  }
+
+  .seach-by-licence input[type=text] {
+    width: 100%;
+    margin: 0 20px 30px 0;
   }
 
   .filter,

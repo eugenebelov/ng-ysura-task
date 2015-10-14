@@ -1,6 +1,9 @@
 <aside class="filter">
   <div class="seach-by-licence">
-    <input type="text" value="License plate" ng-model='filterModelLicense.licensce'/>
+    <input type="text" value="License plate"
+            ng-model='filterModelLicense.licensce'
+            ng-model-options="{ debounce: 500 }"
+            ng-maxlength='15'/>
   </div>
   <div class="filter-by-level">
     <h4>Level:</h4>
