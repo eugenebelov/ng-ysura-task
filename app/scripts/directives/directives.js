@@ -29,18 +29,20 @@ angular.module('ngYsuraTaskApp')
       template: '<a href="" data-id-attribute={{filterBy}}>{{filterLabel}}</a>'
     }
   })
-  .directive('vehicleItem', function () {
+  .directive('vehicleItem', ['Vehicles', function (Vehicles) {
     return {
       restrict: 'E',
       scope: {
         licensce: '@',
         type: '@',
+        typeId: '@',
         level: '@',
         slot: '@',
         parkOutHandler: '&onParkOutHandler'
       },
       link: function(scope, element, attrs) {
         scope.parkOut = false;
+        scope.type = Vehicles.types[scope.typeId].label;
 
         element.on('mouseleave', function(e) {
           scope.parkOut = false;
@@ -54,7 +56,7 @@ angular.module('ngYsuraTaskApp')
       },
       templateUrl: '../views/partials/vehicle-item.html'
     }
-  })
+  }])
   .directive('vehiclesPaging', function () {
     return {
       restrict: 'E',

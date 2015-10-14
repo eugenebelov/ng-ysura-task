@@ -112,7 +112,8 @@ angular.module('ngYsuraTaskApp')
     };
 
     $scope.filterByType = function(value) {
-      $scope.filterModelType = ($scope.filterModelType == value) ? "" : value;
+      console.log($scope.filterModelType, value);
+      $scope.filterModelType = ($scope.filterModelType == value) ? undefined : value;
     };
 
     $scope.totalVehicles = function() {

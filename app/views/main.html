@@ -18,10 +18,10 @@
     <ul>
       <li ng-repeat='type in types'>
         <toggle-filter-link
-                ng-class="{'activeFilter':($parent.type == $index && filterModelType != '')}"
-                filter-by='{{type}}'
-                filter-label='{{type}}'
-                ng-click='filterByType(type); $parent.type = $index;' /></li>
+                ng-class="{'activeFilter':($parent.type == $index && filterModelType != undefined)}"
+                filter-by='{{type.id}}'
+                filter-label='{{type.label}}'
+                ng-click='filterByType(type.id); $parent.type = type.id' /></li>
     </ul>
   </div>
 </aside>
@@ -39,12 +39,12 @@
   <div>
     <ul>
       <li ng-repeat='item in vehiclesList | filter: filterModelLevel
-                                      | filter: filterModelType
+                                      | filter: { type:filterModelType }
                                       | filter: filterModelLicense
                                       | startFrom: currentPage*pageSize
                                       | limitTo: pageSize'>
         <vehicle-item licensce='{{item.licensce}}'
-                      type='{{item.type}}'
+                      type-id='{{item.type}}'
                       level='{{parking[item.level].name}}'
                       slot='{{item.slot}}'
                       on-park-out-handler="goOutOfParking(item)" />
