@@ -54,7 +54,7 @@ angular.module('ngYsuraTaskApp')
           scope.$apply();
         });
       },
-      templateUrl: '../app/views/partials/vehicle-item.html'
+      templateUrl: 'views/partials/vehicle-item.html'
     }
   }])
   .directive('vehiclesPaging', function () {
@@ -90,7 +90,7 @@ angular.module('ngYsuraTaskApp')
       link: function(scope, element, attrs) {
 
       },
-      templateUrl: '../app/views/partials/paging.html'
+      templateUrl: 'views/partials/paging.html'
     }
   })
   .directive('onlyNumbers', function () {
